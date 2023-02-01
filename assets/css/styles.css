@@ -4,7 +4,20 @@
 
 Color & Font Guide
 ****************/
+:root {
+    /*  PRIMARY COLOUR */
+    --SunYellow: #FFCB47 ;
+    /* SECONDARY COLOUR */
+    --SkyBlue: #477BFF;
+    /* MAIN FONT COLOUR */
+    --Black: #000000;
 
+    /* MAIN BODY FONT */
+
+    --Heading: "Merriweather";
+    --Body: "Karla";
+
+  }
 
   
   /************************************************
