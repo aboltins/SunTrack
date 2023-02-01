@@ -7,7 +7,6 @@
 #form-heading:hover .text {
     
         background-color: yellow;
-        opacity: 1;
-        transform: translateY(250px);
+
       
 }
