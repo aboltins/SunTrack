@@ -4,7 +4,7 @@ let latitude = ""
 let longtitude = ""
 let date = ""
 let city = ""
-const googleAPIKey = "AIzaSyCoIJTitaSal9kU_w5Gz0c-M5epiS69i44"
+
 
 // base ajax calls to see repsponse 
 $.ajax({
