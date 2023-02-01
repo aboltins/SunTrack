@@ -6,7 +6,20 @@ Color & Font Guide
 ****************/
 
 
+ 
+:root {
+    /*  PRIMARY COLOUR */
+    --SunYellow: #FFCB47 ;
+    /* SECONDARY COLOUR */
+    --SkyBlue: #477BFF;
+    /* MAIN FONT COLOUR */
+    --Black: #000000;
+
+    /* MAIN BODY FONT */
+   
+  }
   
+   
   /************************************************
     *************************************************
     0. CSS Reset ------------------------ 
@@ -18,7 +31,7 @@ Color & Font Guide
     6. Footer Styles -------------------- 
     7. Misc. Styles ----------- 
     8. Media Queries -----------
-    9. Media Queries ------------------- 
+
 
     ************************************************/
   
