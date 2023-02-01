@@ -59,6 +59,13 @@ Color & Font Guide
       2. Navigation Bar
       ------------------------------------------------
       ----------------------------------------------*/
+
+      .sunTrack-header {
+        background-color: #4158D0;
+        background-image: linear-gradient(43deg, #ee3124 0%, #d8e616 46%, #584c22 100%);
+        
+    }
+    
   
   
   /*----------------------------------------------
@@ -77,9 +84,17 @@ Color & Font Guide
   
   /*----------------------------------------------
       ------------------------------------------------
-      5. Buttons & Search
+      5. Buttons & Search Form
       ------------------------------------------------
       ----------------------------------------------*/
+
+      
+#form-heading:hover .text {
+    
+    background-color: yellow;
+  
+
+}
   
   
   /*----------------------------------------------
@@ -102,17 +117,4 @@ Color & Font Guide
       8. Media Queries
       ------------------------------------------------
       ----------------------------------------------*/
-  
-.sunTrack-header {
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #ee3124 0%, #d8e616 46%, #584c22 100%);
-    
-}
 
-#form-heading:hover .text {
-    
-        background-color: yellow;
-
-      
-
-}
