@@ -80,14 +80,16 @@ console.log(location)
 // sets initial display values for main container and -
 // mylocations sections.
 mainContainer.style.display = "none";
+myLocationsSection.style.display = "none";
 
-// function that hides initial image -
+// function that hides initial image  -
 // and displays main container and my locations sections
 // will need to add other criteria in case the user submits empty fields.
 function switchInitialImage() {
   if (initialImage.style.display !== "none") {
     initialImage.style.display = "none";
     mainContainer.style.display = "inherit";
+    myLocationsSection.style.display = "inherit";
   }
 }
 
