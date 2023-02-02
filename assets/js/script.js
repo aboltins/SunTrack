@@ -9,20 +9,72 @@ let searchForm = document.querySelector("#search-form");
 let initialImage = document.querySelector("#initial-image");
 let mainContainer = document.querySelector(".main-content-container");
 let myLocationsSection = document.querySelector("#my-locations-section");
+const mapContent = $(".overflow-hidden")
 
 // base ajax calls to see repsponse 
-$.ajax({
+/*$.ajax({
   url: "https://nominatim.openstreetmap.org/search.php?city=taipei&format=jsonv2", // uses city as the search
   method: "GET"
 }).then(function(response) {
   console.log(response);
-});
+});*/
 
 $.ajax({
   url: "https://api.sunrisesunset.io/json?lat=38.907192&lng=-77.036873&timezone=UTC&date=today", // with long and lat
   method: "GET"
 }).then(function(response) {
   console.log(response);
+});
+
+$("#search-button").click(function (event) {
+  event.preventDefault();
+  
+  const queryParam = $("#search-input").val();
+
+  const location =
+  "https://nominatim.openstreetmap.org/search.php?city=" + 
+    queryParam +
+    "&format=jsonv2";
+console.log(location)
+
+  if (!queryParam) {
+    return;
+  }
+
+  fetch(location)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      displayCityData(data);
+     
+    });
+
+    function displayCityData(data) {
+
+  
+        
+        const cardContainer = $('<div class="myCard">');
+      
+  
+        const cityName = $(
+          "<div>City: " + data[0].display_name + " </div>"
+        );
+        const latDiv = $(
+          "<div>Lat: " + data[0].lat + " </div>"
+        );
+        const lonDiv = $(
+          "<div>Lon: " + data[0].lon + " </div>"
+        );
+  
+        cardContainer.append(cityName);
+        cardContainer.append(latDiv);
+        cardContainer.append(lonDiv);
+        mapContent.append(cardContainer);
+      
+      
+  }
 });
 
 // sets initial display values for main container and -
