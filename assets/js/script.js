@@ -4,7 +4,11 @@ let latitude = ""
 let longtitude = ""
 let date = ""
 let city = ""
-
+let searchBtn = document.querySelector("#search-button");
+let searchForm = document.querySelector("#search-form");
+let initialImage = document.querySelector("#initial-image");
+let mainContainer = document.querySelector(".main-content-container");
+let myLocationsSection = document.querySelector("#my-locations-section");
 
 // base ajax calls to see repsponse 
 $.ajax({
@@ -20,8 +24,6 @@ $.ajax({
 }).then(function(response) {
   console.log(response);
 });
-
-
 
 var timeDisplayEl = $("#time-display");
 
@@ -44,7 +46,6 @@ $(function () {
   $('#datepicker').on('change', function() {
     date = $(this).val();
   });
-
 
 
   displayTime();

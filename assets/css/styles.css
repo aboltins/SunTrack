@@ -92,10 +92,12 @@ p {
       4. Hero Jumbotron Section
       ------------------------------------------------
       ----------------------------------------------*/
+
 /* hides jumbotron image or main-content - 
       solely for the purpose while working with
       the main cards, will be hidden on-click in js */
-.jumbotron {
+
+      #initial-image {
       display: none;
 }
 
@@ -110,7 +112,7 @@ p {
       ------------------------------------------------
       ----------------------------------------------*/
 
-/* sets the placeholder cards max width to 100%. */
+/* sets the placeholder cards img's max width to 100%. */
 .card-body img {
       max-width: 100%;
 }

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SunTrack</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +20,7 @@
     <!-- header -->
     <header class="container-fluid text-center text-white p-2 sunTrack-header">
         <!-- logo with image -->
-        <img src="/assets/images/suntrack_logo.png" alt="SunTrack logo">
+        <img src="./assets/images/suntrack_logo.png" alt="SunTrack logo">
     </header>
 
     <div class="container-fluid">
@@ -55,8 +55,9 @@
 
     <!-- Main Section of the page  -->
 
-    <!--Jumbotron-->
-    <div class="jumbotron jumbotron-fluid">
+    <!--Jumbotron with Initial Sunset Image that shows up before users have submitted
+    their input-->
+    <div class="jumbotron jumbotron-fluid" id="initial-image">
         <div class="container">
 
             <img class="w-100" src="https://cdn.pixabay.com/photo/2020/12/08/02/20/couple-5813286_1280.jpg">
@@ -76,7 +77,7 @@
                         <div class="overflow-hidden">
                             <!-- Placeholder image, for illustrative purposes,
                             to be deleted once content created. -->
-                            <img src="/assets/images/placeholder-img.png" alt="placeholder image">
+                            <img src="./assets/images/placeholder-img.png" alt="placeholder image">
                         </div>
                     </div>
                 </div>
@@ -136,7 +137,7 @@
 
     <!-- My Locations section -->
 
-    <aside>
+    <article id="my-locations-section">
         <!-- My Locations title -->
         <h3 class="mylocations-title">My Locations</h3>
 
@@ -187,7 +188,7 @@
             </div>
         </div>
 
-    </aside>
+    </article>
 
 
     <!--<div class="list-group" id="history"></div>-->
