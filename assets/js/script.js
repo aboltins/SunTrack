@@ -25,6 +25,30 @@ $.ajax({
   console.log(response);
 });
 
+// sets initial display values for main container and -
+// mylocations sections.
+mainContainer.style.display = "none";
+
+// function that hides initial image -
+// and displays main container and my locations sections
+// will need to add other criteria in case the user submits empty fields.
+function switchInitialImage() {
+  if (initialImage.style.display !== "none") {
+    initialImage.style.display = "none";
+    mainContainer.style.display = "inherit";
+  }
+}
+
+// click event that prevents default and then -
+// checks if button clicked is the searchBtn and then -
+// calls switchInitialImage function.
+searchForm.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (event.target === searchBtn) {
+    switchInitialImage();
+  }
+});
+
 var timeDisplayEl = $("#time-display");
 
 // handle displaying the time
