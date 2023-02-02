@@ -53,7 +53,7 @@ console.log(location)
 
     function displayCityData(data) {
 
-  
+
         
         const cardContainer = $('<div class="myCard">');
       
@@ -71,6 +71,7 @@ console.log(location)
         cardContainer.append(cityName);
         cardContainer.append(latDiv);
         cardContainer.append(lonDiv);
+        mapContent.empty();
         mapContent.append(cardContainer);
       
       
