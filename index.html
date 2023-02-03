@@ -26,32 +26,29 @@
         <a href="">
             <img src="./assets/images/suntrack_logo.png" alt="SunTrack logo">
         </a>
+        <div class="time-div">
+            <h5 id="time-display"></h5>
+        </div>
     </header>
 
-    <div class="container-fluid">
+    <div class="container-fluid hero-container">
         <div class="row h-100 justify-content-center align-items-center">
-            <h2 id="time-display"></h2>
-            <h2 id="form-heading" class="mt-1 container-fluid text-center text">
-                Search for a City:
-            </h2>
-
             <form id="search-form" class="form-group">
-                <div>
+                <div class="input-container">
                     <input id="search-input" class="form-input rounded w-100 m-1 p-2" type="text"
                         placeholder="Enter the city name" />
-
-                    <hr />
-
+                    <h2 id="form-heading" class="mt-1 container-fluid text-center text">
+                        Search for a City:
+                    </h2>
                     <input id="datepicker" class="form-input rounded w-100 m-1 p-2" type="text" autocomplete="off"
                         placeholder="Choose the date" />
-
-
-                    <div>
-                        <button type="submit" class="btn btn-warning float-right" id="search-button">
-                            Search
-                        </button>
-                    </div>
                 </div>
+                <div>
+                    <button type="submit" class="btn btn-warning float-right" id="search-button">
+                        Search
+                    </button>
+                </div>
+
             </form>
         </div>
     </div>
@@ -82,7 +79,7 @@
                         <div class="overflow-hidden">
                             <!-- Placeholder image, for illustrative purposes,
                             to be deleted once content created. -->
-                      
+
                         </div>
                     </div>
                 </div>
@@ -96,19 +93,21 @@
                         <div class="col-md-6">
                             <div class="card sunrise-card">
                                 <div class="card-body sunrise-content">
-                                                                     <!--!!!!-->   
-<audio controls src="https://www.slspencer.com/Sounds/Ringtones/UglyBadGood.m4r" controls="true" class="audio-1"></audio>
+                                    <!--!!!!-->
+                                    <audio controls src="https://www.slspencer.com/Sounds/Ringtones/UglyBadGood.m4r"
+                                        controls="true" class="audio-1"></audio>
                                     <!-- Card title and card text filled for illustrative purposes,
                                     to be deleted once content created. -->
                                     <h5 class="card-title" id="sunrise-card">SUNRISE CARD</h5>
-                                    <p class="card-text">Experience the breathtaking beauty of a sunrise as the sky transforms into a symphony of warm hues, marking the start of a new day.
-                                       </p>
-                                       <ul class="sunrise-times">
-                                        <li>First Light Time: <span id="first-light" ></span></li>
+                                    <p class="card-text">Experience the breathtaking beauty of a sunrise as the sky
+                                        transforms into a symphony of warm hues, marking the start of a new day.
+                                    </p>
+                                    <ul class="sunrise-times">
+                                        <li>First Light Time: <span id="first-light"></span></li>
                                         <li>Sunrise Time: <span id="sunrise"></span></li>
                                         <li>Dawn Time: <span id="dawn-time"></span></li>
-                                
-                                       </ul>
+
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -117,13 +116,16 @@
                         <div class="col-md-6">
                             <div class="card sunset-card" style="width: 100%;">
                                 <div class="card-body sunset-content">
-                                    <audio controls src="https://www.slspencer.com/Sounds/Ringtones/Xtones.m4r" controls="true" class="audio-1"></audio>
+                                    <audio controls src="https://www.slspencer.com/Sounds/Ringtones/Xtones.m4r"
+                                        controls="true" class="audio-1"></audio>
                                     <!-- Card title and card text filled for illustrative purposes,
                                     to be deleted once content created. -->
                                     <h5 class="card-title" id="sunset-card">SUNSET CARD</h5>
-                                    <p class="card-text">Admire the captivating spectacle of a sunset as the sun dips below the horizon, painting the sky in brilliant shades of orange, pink, and red.
-                                       </p>
-                                       <ul class="sunset-times">
+                                    <p class="card-text">Admire the captivating spectacle of a sunset as the sun dips
+                                        below the horizon, painting the sky in brilliant shades of orange, pink, and
+                                        red.
+                                    </p>
+                                    <ul class="sunset-times">
                                         <li>Last Light Time: <span id="last-light"></span></li>
                                         <li>Sunset Time: <span id="sunset"></span></li>
                                         <li>Dusk Time: <span id="dusk-time"></span></li>

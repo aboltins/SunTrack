@@ -17,6 +17,7 @@ let searchForm = document.querySelector("#search-form");
 let initialImage = document.querySelector("#initial-image");
 let mainContainer = document.querySelector(".main-content-container");
 let myLocationsSection = document.querySelector("#my-locations-section");
+var timeDisplayEl = $("#time-display");
 
 const mapContent = $(".overflow-hidden");
 
@@ -171,7 +172,7 @@ searchForm.addEventListener("click", function (event) {
   }
 });
 
-var timeDisplayEl = $("#time-display");
+
 
 // handle displaying the time
 function displayTime() {
