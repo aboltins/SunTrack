@@ -1,17 +1,9 @@
-// required variables
+// required variables 
 
-var latitude = "";
-var longtitude = "";
-var date = "";
-var city = "";
-var sunrise = "";
-var firstLight = "";
-var dawn = "";
-var dusk = "";
-var lastLight = "";
-var sunset = "";
-var imageURL = "";
-
+let latitude = ""
+let longtitude = ""
+let date = ""
+let city = ""
 let searchBtn = document.querySelector("#search-button");
 let searchForm = document.querySelector("#search-form");
 let initialImage = document.querySelector("#initial-image");
@@ -22,11 +14,19 @@ const mapContent = $(".overflow-hidden");
 
 // base ajax calls to see repsponse
 /*$.ajax({
-  url: "https://nominatim.openstreetmap.org/search.php?city=taipei&format=jsonv2", // uses city as the search
-  method: "GET"
-}).then(function(response) {
-  console.log(response);
-});*/
+    url: "https://nominatim.openstreetmap.org/search.php?city=taipei&format=jsonv2", // uses city as the search
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+  });*/
+
+// pulls info from local storage and saves to the city searches object
+window.onload = function () {
+  let storedData = JSON.parse(localStorage.getItem("citySearches"));
+  if (storedData) {
+    citySearches = storedData;
+  }
+};
 
 $.ajax({
   url: "https://api.sunrisesunset.io/json?lat=38.907192&lng=-77.036873&timezone=UTC&date=today", // with long and lat
@@ -57,65 +57,33 @@ $("#search-button").click(function (event) {
     .then(function (data) {
       console.log(data);
       displayCityData(data);
-      latitude = data[0].lat;
-      longtitude = data[0].lon;
-      imageURL = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "%2c%20" + longtitude + "8&zoom=12&size=800x600&key=AIzaSyCoIJTitaSal9kU_w5Gz0c-M5epiS69i44"
-      // call to sunset api
-
-      const sunriseSunset =
-        "https://api.sunrisesunset.io/json?lat=" +
-        latitude +
-        "&lng=" +
-        longtitude +
-        "&timezone=UTC&date=" +
-        date;
-      $.ajax({
-        url: sunriseSunset,
-        method: "GET",
-      }).then(function (sunriseSunsetResponse) {
-        console.log(sunriseSunsetResponse);
-        //saving API response to global scoped variables
-        sunrise = sunriseSunsetResponse.results.sunrise;
-        firstLight = sunriseSunsetResponse.results.first_light;
-        dawn = sunriseSunsetResponse.results.dawn;
-        dusk = sunriseSunsetResponse.results.dusk;
-        lastLight = sunriseSunsetResponse.results.last_light;
-        sunset = sunriseSunsetResponse.results.sunset;
-          //map image 
-   
-
-        //adds sunrise data to HTML
-        $("#first-light").text(firstLight);
-        $("#sunrise").text(sunrise);
-        $("#dawn-time").text(dawn);
-        $("#dusk-time").text(dusk);
-        $("#last-light").text(lastLight);
-        $("#sunset").text(sunset);
-
-        // Card Titles
-
-        $("#sunrise-card").text(city + " Sunrise Information");
-        $("#sunset-card").text(city + " Sunset Information");
-
-        $("#mapimage").attr("src", imageURL);
-       
-
-      });
+     
     });
 
-  function displayCityData(data) {
-    const cardContainer = $('<div class="myCard">');
+    function displayCityData(data) {
 
-    const cityName = $("<div>City: " + data[0].display_name + " </div>");
-    const latDiv = $("<div>Lat: " + data[0].lat + " </div>");
-    const lonDiv = $("<div>Lon: " + data[0].lon + " </div>");
 
-    cardContainer.append(cityName);
-    cardContainer.append(latDiv);
-    cardContainer.append(lonDiv);
-    mapContent.empty();
-    mapContent.append(cardContainer);
-    
+        
+        const cardContainer = $('<div class="myCard">');
+      
+  
+        const cityName = $(
+          "<div>City: " + data[0].display_name + " </div>"
+        );
+        const latDiv = $(
+          "<div>Lat: " + data[0].lat + " </div>"
+        );
+        const lonDiv = $(
+          "<div>Lon: " + data[0].lon + " </div>"
+        );
+  
+        cardContainer.append(cityName);
+        cardContainer.append(latDiv);
+        cardContainer.append(lonDiv);
+        mapContent.empty();
+        mapContent.append(cardContainer);
+      
+      
   }
 });
 
@@ -167,4 +135,4 @@ $("#datepicker").on("change", function () {
   date = $(this).val();
 });
 
-displayTime();
+  displayTime();
