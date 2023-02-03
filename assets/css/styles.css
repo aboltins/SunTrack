@@ -9,7 +9,7 @@ Color & Font Guide
   --SkyBlue: #477bff;
   /* MAIN FONT COLOURS */
   --Black: #000000;
-  --White: #ffffff; 
+  --White: #ffffff;
 
   /* MAIN BODY FONT */
 
@@ -86,12 +86,10 @@ h3 {
 
 .sunTrack-header {
   /* background-color: var(--SunYellow); */
-  background-image: linear-gradient(
-    43deg,
-    #ee3124 0%,
-    #ffcb47 46%,
-    #584c22 100%
-  );
+  background-image: linear-gradient(43deg,
+      #ee3124 0%,
+      #ffcb47 46%,
+      #584c22 100%);
 
   /* sets properties for entire header */
   height: 13vh;
@@ -99,7 +97,7 @@ h3 {
   justify-content: space-between;
   align-items: center;
   /* leaves gap for input container */
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 }
 
 /* sets properties for anchor tag within the header and therefore positions
@@ -209,7 +207,7 @@ the elements in the center and creates gap between */
 }
 
 .card-text-black {
-color: #000000!important;
+  color: #000000 !important;
 }
 
 
@@ -245,3 +243,47 @@ footer {
       9. Media Queries
       ------------------------------------------------
       ----------------------------------------------*/
+/* sets media query on input container for everything under 1200px */
+@media only screen and (max-width: 1200px) {
+  .input-container {
+    /* flex-direction: column; */
+    gap: 1vh;
+
+  }
+}
+
+/* sets media query on input container for everything under 991px */
+@media only screen and (max-width: 991px) {
+  .input-container {
+    flex-direction: column;
+    gap: 0vh;
+  }
+
+  .input-container :nth-child(1) {
+    order: 2;
+  }
+
+  .input-container :nth-child(2) {
+    order: 1;
+  }
+
+  .input-container :nth-child(3) {
+    order: 3;
+  }
+}
+
+/* sets media query on search input, datepicker and search button for everything under 650px */
+@media only screen and (max-width: 650px) {
+
+  #search-input,
+  #datepicker {
+    height: 30px;
+    font-size: small;
+    font-weight: bold;
+  }
+
+  #search-button {
+    height: 25px;
+    font-size: 9px;
+  }
+}
