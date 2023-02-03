@@ -44,6 +44,16 @@ Color & Font Guide
   box-sizing: border-box;
 }
 
+html {
+      height: 100%;
+}
+
+body {
+      /* sets padding at the bottom to same height as footer so
+      the fixed footer does not overlap any content */
+      padding-bottom: 50px;
+
+}
 /*----------------------------------------------
       ------------------------------------------------
       1. Universal Styles
@@ -147,6 +157,16 @@ ul {
       7. Footer Styles
       ------------------------------------------------
       ----------------------------------------------*/
+      
+      /* sets footers height, position to fixed at the bottom
+      of the page, 0 from bottom and width to take 100% */
+footer {
+      height: 40px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+}
+
 
 /*----------------------------------------------
       ------------------------------------------------
