@@ -112,6 +112,31 @@ ul {
       3. Navigation Bar
       ------------------------------------------------
       ----------------------------------------------*/
+      /* makes entire input container a flex continer and positions
+the elements in the center and creates gap between */
+.input-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10vh;
+}
+
+/* styles input and datepicker */
+#search-input,
+#datepicker {
+      height: 50px;
+      font-size: larger;
+      font-weight: bolder;
+}
+
+/* styles search button */
+#search-button {
+      background-color: var(--SkyBlue);
+      color: #ff914d;
+      border-color: black !important;
+      font-weight: bolder;
+}
+
 
 /*----------------------------------------------
       ------------------------------------------------
