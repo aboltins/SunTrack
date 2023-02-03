@@ -27,6 +27,12 @@ const mapContent = $(".overflow-hidden");
   }).then(function(response) {
     console.log(response);
   });*/
+  
+
+// calls modal
+$(document).ready(function () {
+  $('#modal').modal('show');
+});
 
 // pulls info from local storage and saves to the city searches object
 window.onload = function () {
@@ -139,11 +145,11 @@ $("#search-button").click(function (event) {
     const lonDiv = $("<div>Lon: " + data[0].lon + " </div>");
     const cityBlurb = $(
       "<div> Here is how to find " +
-        "<strong>" +
-        city +
-        "</strong>" +
-        ", have fun seeing the sights!" +
-        "</div>"
+      "<strong>" +
+      city +
+      "</strong>" +
+      ", have fun seeing the sights!" +
+      "</div>"
     );
 
     cardContainer.append(cityName);

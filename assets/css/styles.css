@@ -238,6 +238,33 @@ footer {
       ------------------------------------------------
       ----------------------------------------------*/
 
+/* Modal styles */
+
+.modal-body {
+  border: 0;
+}
+
+
+.modal-content {
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.5) !important;
+  text-align: center;
+}
+
+.modal-title {
+  font-weight: bolder;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-family: var(--Heading), Arial, Helvetica, sans-serif;
+}
+
+.modal-text {
+  font-weight: 300;
+  font-size: 18px;
+  font-family: var(--body), Arial, Helvetica, sans-serif;
+}
+
 /*----------------------------------------------
       ------------------------------------------------
       9. Media Queries
