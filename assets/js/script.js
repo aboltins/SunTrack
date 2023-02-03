@@ -193,4 +193,4 @@ $("#datepicker").on("change", function () {
   date = $(this).val();
 });
 
-// displayTime();
+displayTime();
