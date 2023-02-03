@@ -1,17 +1,26 @@
-// required variables 
+// required variables
 
-let latitude = ""
-let longtitude = ""
-let date = ""
-let city = ""
+var latitude = "";
+var longtitude = "";
+var date = "";
+var city = "";
+var sunrise = "";
+var firstLight = "";
+var dawn = "";
+var dusk = "";
+var lastLight = "";
+var sunset = "";
+var imageURL = "";
+
 let searchBtn = document.querySelector("#search-button");
 let searchForm = document.querySelector("#search-form");
 let initialImage = document.querySelector("#initial-image");
 let mainContainer = document.querySelector(".main-content-container");
 let myLocationsSection = document.querySelector("#my-locations-section");
-const mapContent = $(".overflow-hidden")
 
-// base ajax calls to see repsponse 
+const mapContent = $(".overflow-hidden");
+
+// base ajax calls to see repsponse
 /*$.ajax({
   url: "https://nominatim.openstreetmap.org/search.php?city=taipei&format=jsonv2", // uses city as the search
   method: "GET"
@@ -21,21 +30,21 @@ const mapContent = $(".overflow-hidden")
 
 $.ajax({
   url: "https://api.sunrisesunset.io/json?lat=38.907192&lng=-77.036873&timezone=UTC&date=today", // with long and lat
-  method: "GET"
-}).then(function(response) {
+  method: "GET",
+}).then(function (response) {
   console.log(response);
 });
 
 $("#search-button").click(function (event) {
   event.preventDefault();
-  
-  const queryParam = $("#search-input").val();
 
+  const queryParam = $("#search-input").val();
+  city = $("#search-input").val();
   const location =
-  "https://nominatim.openstreetmap.org/search.php?city=" + 
+    "https://nominatim.openstreetmap.org/search.php?city=" +
     queryParam +
     "&format=jsonv2";
-console.log(location)
+  console.log(location);
 
   if (!queryParam) {
     return;
@@ -48,33 +57,65 @@ console.log(location)
     .then(function (data) {
       console.log(data);
       displayCityData(data);
-     
+      latitude = data[0].lat;
+      longtitude = data[0].lon;
+      imageURL = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "%2c%20" + longtitude + "8&zoom=12&size=800x600&key=AIzaSyCoIJTitaSal9kU_w5Gz0c-M5epiS69i44"
+      // call to sunset api
+
+      const sunriseSunset =
+        "https://api.sunrisesunset.io/json?lat=" +
+        latitude +
+        "&lng=" +
+        longtitude +
+        "&timezone=UTC&date=" +
+        date;
+      $.ajax({
+        url: sunriseSunset,
+        method: "GET",
+      }).then(function (sunriseSunsetResponse) {
+        console.log(sunriseSunsetResponse);
+        //saving API response to global scoped variables
+        sunrise = sunriseSunsetResponse.results.sunrise;
+        firstLight = sunriseSunsetResponse.results.first_light;
+        dawn = sunriseSunsetResponse.results.dawn;
+        dusk = sunriseSunsetResponse.results.dusk;
+        lastLight = sunriseSunsetResponse.results.last_light;
+        sunset = sunriseSunsetResponse.results.sunset;
+          //map image 
+   
+
+        //adds sunrise data to HTML
+        $("#first-light").text(firstLight);
+        $("#sunrise").text(sunrise);
+        $("#dawn-time").text(dawn);
+        $("#dusk-time").text(dusk);
+        $("#last-light").text(lastLight);
+        $("#sunset").text(sunset);
+
+        // Card Titles
+
+        $("#sunrise-card").text(city + " Sunrise Information");
+        $("#sunset-card").text(city + " Sunset Information");
+
+        $("#mapimage").attr("src", imageURL);
+       
+
+      });
     });
 
-    function displayCityData(data) {
+  function displayCityData(data) {
+    const cardContainer = $('<div class="myCard">');
 
+    const cityName = $("<div>City: " + data[0].display_name + " </div>");
+    const latDiv = $("<div>Lat: " + data[0].lat + " </div>");
+    const lonDiv = $("<div>Lon: " + data[0].lon + " </div>");
 
-        
-        const cardContainer = $('<div class="myCard">');
-      
-  
-        const cityName = $(
-          "<div>City: " + data[0].display_name + " </div>"
-        );
-        const latDiv = $(
-          "<div>Lat: " + data[0].lat + " </div>"
-        );
-        const lonDiv = $(
-          "<div>Lon: " + data[0].lon + " </div>"
-        );
-  
-        cardContainer.append(cityName);
-        cardContainer.append(latDiv);
-        cardContainer.append(lonDiv);
-        mapContent.empty();
-        mapContent.append(cardContainer);
-      
-      
+    cardContainer.append(cityName);
+    cardContainer.append(latDiv);
+    cardContainer.append(lonDiv);
+    mapContent.empty();
+    mapContent.append(cardContainer);
+    
   }
 });
 
@@ -108,23 +149,22 @@ var timeDisplayEl = $("#time-display");
 
 // handle displaying the time
 function displayTime() {
-    var rightNow = moment().format('llll');
-    timeDisplayEl.text(rightNow);
-  }
+  var rightNow = moment().format("llll");
+  timeDisplayEl.text(rightNow);
+}
 
 // Datepicker widget
 $(function () {
-    $('#datepicker').datepicker({
-      changeMonth: true,
-      changeYear: true,
-      dateFormat: 'yy-mm-dd'
-    });
+  $("#datepicker").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: "yy-mm-dd",
   });
+});
 
-  // saves the date to the date variable 
-  $('#datepicker').on('change', function() {
-    date = $(this).val();
-  });
+// saves the date to the date variable
+$("#datepicker").on("change", function () {
+  date = $(this).val();
+});
 
-
-  displayTime();
+displayTime();
