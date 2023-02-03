@@ -287,3 +287,16 @@ footer {
     font-size: 9px;
   }
 }
+
+/* sets media query for time-display size */
+@media only screen and (max-width: 991px) {
+  #time-display {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  #time-display {
+    font-size: 13px;
+  }
+}
