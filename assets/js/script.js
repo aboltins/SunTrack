@@ -180,8 +180,6 @@ function displayTime() {
   setInterval(displayTime, 1000);
 }
 
-
-
 // Datepicker widget
 $(function () {
   $("#datepicker").datepicker({
