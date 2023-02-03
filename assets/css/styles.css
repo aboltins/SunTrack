@@ -7,8 +7,9 @@ Color & Font Guide
   --SunYellow: #ffcb47;
   /* SECONDARY COLOUR */
   --SkyBlue: #477bff;
-  /* MAIN FONT COLOUR */
+  /* MAIN FONT COLOURS */
   --Black: #000000;
+  --White: #ffffff; 
 
   /* MAIN BODY FONT */
 
@@ -115,7 +116,7 @@ h3 {
 .placeholder-div,
 .time-div {
   width: 20%;
-  color: black;
+  color: var(--Black);
 }
 
 /*----------------------------------------------
@@ -143,13 +144,13 @@ the elements in the center and creates gap between */
 /* styles search button */
 #search-button {
   background-color: var(--SkyBlue);
-  color: white;
+  color: var(--White);
   border-color: black !important;
   font-weight: bolder;
 }
 
 #time-display {
-  color: white;
+  color: var(--White);
 }
 
 /*----------------------------------------------
@@ -193,18 +194,18 @@ the elements in the center and creates gap between */
 }
 
 .card-text {
-  color: white;
+  color: var(--White);
   font-weight: 600;
 }
 
 #sunrise-card,
 #sunset-card {
-  color: white;
+  color: var(--White);
 }
 
 .sunrise-times,
 .sunset-times {
-  color: white;
+  color: var(--White);
 }
 
 .card-text-black {
