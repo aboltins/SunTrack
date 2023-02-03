@@ -1,3 +1,4 @@
+
 // required variables
 let citySearches = []; // object for local storage
 var latitude = "";
