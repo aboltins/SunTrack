@@ -1,21 +1,19 @@
 /*************************************************
 **************************************************
-
-
 Color & Font Guide
 ****************/
 :root {
-  /*  PRIMARY COLOUR */
-  --SunYellow: #ffcb47;
-  /* SECONDARY COLOUR */
-  --SkyBlue: #477bff;
-  /* MAIN FONT COLOUR */
-  --Black: #000000;
+      /*  PRIMARY COLOUR */
+      --SunYellow: #ffcb47;
+      /* SECONDARY COLOUR */
+      --SkyBlue: #477bff;
+      /* MAIN FONT COLOUR */
+      --Black: #000000;
 
-  /* MAIN BODY FONT */
+      /* MAIN BODY FONT */
 
-  --Heading: "Merriweather";
-  --Body: "Karla";
+      --Heading: "Merriweather";
+      --Body: "Karla";
 }
 
 /************************************************
@@ -29,8 +27,6 @@ Color & Font Guide
     6. Footer Styles -------------------- 
     7. Misc. Styles ----------- 
     8. Media Queries -----------
-
-
     ************************************************/
 
 /*----------------------------------------------
@@ -39,9 +35,9 @@ Color & Font Guide
     ------------------------------------------------
     ----------------------------------------------*/
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
 }
 
 html {
@@ -54,6 +50,7 @@ body {
       padding-bottom: 50px;
 
 }
+
 /*----------------------------------------------
       ------------------------------------------------
       1. Universal Styles
@@ -65,15 +62,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--Heading);
+      font-family: var(--Heading);
 }
 
 p {
-  font-family: var(--Body);
+      font-family: var(--Body);
 }
 
 ul {
-  list-style: none;
+      list-style: none;
 }
 
 /*----------------------------------------------
@@ -83,17 +80,27 @@ ul {
       ----------------------------------------------*/
 
 .sunTrack-header {
-  background-color: var(--SunYellow);
-  background-image: linear-gradient(
-    43deg,
-    #ee3124 0%,
-    #ffcb47 46%,
-    #584c22 100%
-  );
-  /* sets height for entire header and positions the logo image in the center */
-  height: 13vh;
-  display: flex;
-  justify-content: center;
+      /* background-color: var(--SunYellow); */
+      background-image: linear-gradient(43deg,
+                  #ee3124 0%,
+                  #ffcb47 46%,
+                  #584c22 100%);
+
+      /* sets properties for entire header */
+      height: 13vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* leaves gap for input container */
+      margin-bottom: 30px;
+}
+
+/* sets properties for anchor tag within the header and therefore positions
+      the logo img  */
+.sunTrack-header a {
+      height: 100%;
+      display: flex;
+      justify-content: center;
 }
 
 /*----------------------------------------------
@@ -130,20 +137,20 @@ ul {
 .sunrise-content {
       background: url("../images/sunrise.gif");
       background-repeat: no-repeat;
-      background-size:cover;
+      background-size: cover;
 
-      
+
 }
 
 .sunset-content {
       background: url("../images/sunset.gif");
       background-repeat: no-repeat;
-      background-size:cover;
-      
+      background-size: cover;
+
 }
 
 .card-body img {
-  max-width: 100%;
+      max-width: 100%;
 }
 
 /*----------------------------------------------
@@ -157,8 +164,8 @@ ul {
       7. Footer Styles
       ------------------------------------------------
       ----------------------------------------------*/
-      
-      /* sets footers height, position to fixed at the bottom
+
+/* sets footers height, position to fixed at the bottom
       of the page, 0 from bottom and width to take 100% */
 footer {
       height: 40px;
