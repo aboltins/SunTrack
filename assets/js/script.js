@@ -1,9 +1,17 @@
-// required variables 
+// required variables
+let citySearches = []; // object for local storage
+var latitude = "";
+var longtitude = "";
+var date = "";
+var city = "";
+var sunrise = "";
+var firstLight = "";
+var dawn = "";
+var dusk = "";
+var lastLight = "";
+var sunset = "";
+var imageURL = "";
 
-let latitude = ""
-let longtitude = ""
-let date = ""
-let city = ""
 let searchBtn = document.querySelector("#search-button");
 let searchForm = document.querySelector("#search-form");
 let initialImage = document.querySelector("#initial-image");
@@ -57,33 +65,83 @@ $("#search-button").click(function (event) {
     .then(function (data) {
       console.log(data);
       displayCityData(data);
-     
+      latitude = data[0].lat;
+      longtitude = data[0].lon;
+      imageURL =
+        "https://maps.googleapis.com/maps/api/staticmap?center=" +
+        latitude +
+        "%2c%20" +
+        longtitude +
+        "8&zoom=12&size=600x600&key=AIzaSyCoIJTitaSal9kU_w5Gz0c-M5epiS69i44";
+      // call to sunset api
+
+      const sunriseSunset =
+        "https://api.sunrisesunset.io/json?lat=" +
+        latitude +
+        "&lng=" +
+        longtitude +
+        "&timezone=UTC&date=" +
+        date;
+      $.ajax({
+        url: sunriseSunset,
+        method: "GET",
+      }).then(function (sunriseSunsetResponse) {
+        console.log(sunriseSunsetResponse);
+
+        //saving API response to global scoped variables
+        sunrise = sunriseSunsetResponse.results.sunrise;
+        firstLight = sunriseSunsetResponse.results.first_light;
+        dawn = sunriseSunsetResponse.results.dawn;
+        dusk = sunriseSunsetResponse.results.dusk;
+        lastLight = sunriseSunsetResponse.results.last_light;
+        sunset = sunriseSunsetResponse.results.sunset;
+
+        //local storage save work - saves an object to local storage
+
+        let cityData = {
+          city: city,
+          latitude: latitude,
+          longtitude: longtitude,
+          sunrise: sunrise,
+          firstLight: firstLight,
+          dawn: dawn,
+          dusk: dusk,
+          lastLight: lastLight,
+          sunset: sunset,
+          imageURL: imageURL,
+        };
+        citySearches.push(cityData);
+        localStorage.setItem("citySearches", JSON.stringify(citySearches));
+
+        //adds sunrise data to HTML
+        $("#first-light").text(firstLight);
+        $("#sunrise").text(sunrise);
+        $("#dawn-time").text(dawn);
+        $("#dusk-time").text(dusk);
+        $("#last-light").text(lastLight);
+        $("#sunset").text(sunset);
+
+        // Card Titles
+
+        $("#sunrise-card").text(city + " Sunrise Information");
+        $("#sunset-card").text(city + " Sunset Information");
+        //map image
+        $("#mapimage").attr("src", imageURL);
+      });
     });
 
-    function displayCityData(data) {
+  function displayCityData(data) {
+    const cardContainer = $('<div class="myCard">');
 
+    const cityName = $("<div>City: " + data[0].display_name + " </div>");
+    const latDiv = $("<div>Lat: " + data[0].lat + " </div>");
+    const lonDiv = $("<div>Lon: " + data[0].lon + " </div>");
 
-        
-        const cardContainer = $('<div class="myCard">');
-      
-  
-        const cityName = $(
-          "<div>City: " + data[0].display_name + " </div>"
-        );
-        const latDiv = $(
-          "<div>Lat: " + data[0].lat + " </div>"
-        );
-        const lonDiv = $(
-          "<div>Lon: " + data[0].lon + " </div>"
-        );
-  
-        cardContainer.append(cityName);
-        cardContainer.append(latDiv);
-        cardContainer.append(lonDiv);
-        mapContent.empty();
-        mapContent.append(cardContainer);
-      
-      
+    cardContainer.append(cityName);
+    cardContainer.append(latDiv);
+    cardContainer.append(lonDiv);
+    mapContent.empty();
+    mapContent.append(cardContainer);
   }
 });
 
@@ -135,4 +193,4 @@ $("#datepicker").on("change", function () {
   date = $(this).val();
 });
 
-  displayTime();
+displayTime();
