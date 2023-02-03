@@ -177,7 +177,10 @@ var timeDisplayEl = $("#time-display");
 function displayTime() {
   var rightNow = moment().format("llll");
   timeDisplayEl.text(rightNow);
+  setInterval(displayTime, 1000);
 }
+
+
 
 // Datepicker widget
 $(function () {
