@@ -1,4 +1,3 @@
-
 // required variables
 let citySearches = []; // object for local storage
 var latitude = "";
@@ -121,7 +120,7 @@ $("#search-button").click(function (event) {
         $("#dusk-time").text(dusk);
         $("#last-light").text(lastLight);
         $("#sunset").text(sunset);
-        $("#map-title").text(city)
+        $("#map-title").text(city);
 
         // Card Titles
 
@@ -138,7 +137,14 @@ $("#search-button").click(function (event) {
     const cityName = $("<div>City: " + data[0].display_name + " </div>");
     const latDiv = $("<div>Lat: " + data[0].lat + " </div>");
     const lonDiv = $("<div>Lon: " + data[0].lon + " </div>");
-    const cityBlurb = $("<div> Here is how to find " + "<strong>" + city + "</strong>" + " have fun seeing the sights!" + "</div>")
+    const cityBlurb = $(
+      "<div> Here is how to find " +
+        "<strong>" +
+        city +
+        "</strong>" +
+        ", have fun seeing the sights!" +
+        "</div>"
+    );
 
     cardContainer.append(cityName);
     cardContainer.append(latDiv);
@@ -175,6 +181,7 @@ searchForm.addEventListener("click", function (event) {
   }
 });
 
+// moment .js
 var timeDisplayEl = $("#time-display");
 
 // handle displaying the time
@@ -190,6 +197,7 @@ $(function () {
     changeMonth: true,
     changeYear: true,
     dateFormat: "yy-mm-dd",
+    maxDate: "+3m" // sets max date on date picker
   });
 });
 
@@ -198,4 +206,5 @@ $("#datepicker").on("change", function () {
   date = $(this).val();
 });
 
+//runs the time function
 displayTime();
