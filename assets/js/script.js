@@ -1,3 +1,4 @@
+
 // required variables
 let citySearches = []; // object for local storage
 var latitude = "";
@@ -37,7 +38,7 @@ window.onload = function () {
 };
 
 $.ajax({
-  url: "https://api.sunrisesunset.io/json?lat=38.907192&lng=-77.036873&timezone=UTC&date=today", // with long and lat
+  url: "https://api.sunrisesunset.io/json?lat=38.907192&lng=-77.036873&date=today", // with long and lat
   method: "GET",
 }).then(function (response) {
   console.log(response);
@@ -80,7 +81,7 @@ $("#search-button").click(function (event) {
         latitude +
         "&lng=" +
         longtitude +
-        "&timezone=UTC&date=" +
+        "&date=" +
         date;
       $.ajax({
         url: sunriseSunset,
@@ -120,6 +121,7 @@ $("#search-button").click(function (event) {
         $("#dusk-time").text(dusk);
         $("#last-light").text(lastLight);
         $("#sunset").text(sunset);
+        $("#map-title").text(city)
 
         // Card Titles
 
@@ -136,10 +138,12 @@ $("#search-button").click(function (event) {
     const cityName = $("<div>City: " + data[0].display_name + " </div>");
     const latDiv = $("<div>Lat: " + data[0].lat + " </div>");
     const lonDiv = $("<div>Lon: " + data[0].lon + " </div>");
+    const cityBlurb = $("<div> Here is how to find " + "<strong>" + city + "</strong>" + " have fun seeing the sights!" + "</div>")
 
     cardContainer.append(cityName);
     cardContainer.append(latDiv);
     cardContainer.append(lonDiv);
+    cardContainer.append(cityBlurb);
     mapContent.empty();
     mapContent.append(cardContainer);
   }
