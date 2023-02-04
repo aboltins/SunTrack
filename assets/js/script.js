@@ -20,18 +20,9 @@ let myLocationsSection = document.querySelector("#my-locations-section");
 
 const mapContent = $(".overflow-hidden");
 
-// base ajax calls to see repsponse
-/*$.ajax({
-    url: "https://nominatim.openstreetmap.org/search.php?city=taipei&format=jsonv2", // uses city as the search
-    method: "GET"
-  }).then(function(response) {
-    console.log(response);
-  });*/
-  
-
 // calls modal
 $(document).ready(function () {
-  $('#modal').modal('show');
+  $("#modal").modal("show");
 });
 
 // pulls info from local storage and saves to the city searches object
@@ -42,18 +33,12 @@ window.onload = function () {
   }
 };
 
-$.ajax({
-  url: "https://api.sunrisesunset.io/json?lat=38.907192&lng=-77.036873&date=today", // with long and lat
-  method: "GET",
-}).then(function (response) {
-  console.log(response);
-});
-
-$("#search-button").click(function (event) {
-  event.preventDefault();
+$("#search-button").click(function () {
+  // event.preventDefault();
 
   const queryParam = $("#search-input").val();
   city = $("#search-input").val();
+  city = city.charAt(0).toUpperCase() + city.slice(1); // makes the first letter caps of the city value :)
   const location =
     "https://nominatim.openstreetmap.org/search.php?city=" +
     queryParam +
@@ -62,6 +47,10 @@ $("#search-button").click(function (event) {
 
   if (!queryParam) {
     return;
+  }
+
+  if (!date) {
+    date = "Today"; // sets date to today if no date chosen - added so HTML has a value
   }
 
   fetch(location)
@@ -115,9 +104,25 @@ $("#search-button").click(function (event) {
           lastLight: lastLight,
           sunset: sunset,
           imageURL: imageURL,
+          date: date,
         };
-        citySearches.push(cityData);
-        localStorage.setItem("citySearches", JSON.stringify(citySearches));
+
+        // check if city and date already exist in citySearches
+        let cityExists = false;
+        let dateExists = false;
+        for (let i = 0; i < citySearches.length; i++) {
+          if (citySearches[i].city === city && citySearches[i].date === date) {
+            cityExists = true;
+            dateExists = true;
+            break;
+          }
+        }
+
+        // only add the city data if neither city nor date exists
+        if (!cityExists && !dateExists) {
+          citySearches.unshift(cityData);
+          localStorage.setItem("citySearches", JSON.stringify(citySearches));
+        }
 
         //adds sunrise data to HTML
         $("#first-light").text(firstLight);
@@ -127,6 +132,8 @@ $("#search-button").click(function (event) {
         $("#last-light").text(lastLight);
         $("#sunset").text(sunset);
         $("#map-title").text(city);
+        $("#date").text(date);
+        $("#dateSunset").text(date);
 
         // Card Titles
 
@@ -145,11 +152,11 @@ $("#search-button").click(function (event) {
     const lonDiv = $("<div>Lon: " + data[0].lon + " </div>");
     const cityBlurb = $(
       "<div> Here is how to find " +
-      "<strong>" +
-      city +
-      "</strong>" +
-      ", have fun seeing the sights!" +
-      "</div>"
+        "<strong>" +
+        city +
+        "</strong>" +
+        ", have fun seeing the sights!" +
+        "</div>"
     );
 
     cardContainer.append(cityName);
@@ -203,7 +210,7 @@ $(function () {
     changeMonth: true,
     changeYear: true,
     dateFormat: "yy-mm-dd",
-    maxDate: "+3m" // sets max date on date picker
+    maxDate: "+3m", // sets max date on date picker
   });
 });
 
