@@ -176,6 +176,11 @@ the elements in the center and creates gap between */
       display: none;
 } */
 
+#form-heading {
+      color: var(--White);
+}
+
+
 /*----------------------------------------------
       ------------------------------------------------
       5. Sun Rise & Sun Set Section

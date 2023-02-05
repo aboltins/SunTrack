@@ -2,7 +2,7 @@
 let citySearches = []; // object for local storage
 var latitude = "";
 var longtitude = "";
-var date = "";
+var date = "Today";
 var city = "";
 var sunrise = "";
 var firstLight = "";
@@ -11,6 +11,8 @@ var dusk = "";
 var lastLight = "";
 var sunset = "";
 var imageURL = "";
+var $modal = $("#errorModal");
+var today = new Date();
 
 let searchBtn = document.querySelector("#search-button");
 let searchForm = document.querySelector("#search-form");
@@ -20,10 +22,30 @@ let myLocationsSection = document.querySelector("#my-locations-section");
 
 const mapContent = $(".overflow-hidden");
 
-// calls modal
-$(document).ready(function () {
-  $("#modal").modal("show");
+////// MODAL WORK// calls modals when no response from maps API
+function modal() {
+  mainContainer.style.display = "none";
+  initialImage.style.display = "block";
+  myLocationsSection.style.display = "none";
+
+  $("#errorModal").modal("show");
+}
+
+$modal.on("hidden.bs.modal", function () {
+  // Reload the location data
+  location.reload();
 });
+
+$(document).ready(function () {
+  // Check if the modal has already been shown to the user
+  if (!localStorage.getItem("modalShown")) {
+    // Show the modal
+    $("#modal").modal("show");
+    // Set a flag in local storage to indicate that the modal has been shown
+    localStorage.setItem("modalShown", true);
+  }
+});
+//MODAL WORK END
 
 // pulls info from local storage and saves to the city searches object
 window.onload = function () {
@@ -49,16 +71,19 @@ $("#search-button").click(function () {
     return;
   }
 
-  if (!date) {
-    date = "Today"; // sets date to today if no date chosen - added so HTML has a value
-  }
-
   fetch(location)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
+
+      if (data.length === 0) {
+        /// NEw code in place to stop no city response
+        modal();
+        return;
+      }
+
       displayCityData(data);
       latitude = data[0].lat;
       longtitude = data[0].lon;
@@ -211,6 +236,7 @@ $(function () {
     changeYear: true,
     dateFormat: "yy-mm-dd",
     maxDate: "+3m", // sets max date on date picker
+    defaultDate: today,
   });
 });
 
