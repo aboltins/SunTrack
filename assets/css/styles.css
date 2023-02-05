@@ -153,6 +153,11 @@ the elements in the center and creates gap between */
   color: var(--White);
 }
 
+.hero-container {
+  background: url("../images/d07d62267a83255f3e2eeb2c53e95645.gif");
+ 
+  
+}
 /*----------------------------------------------
       ------------------------------------------------
       4. Hero Jumbotron Section
