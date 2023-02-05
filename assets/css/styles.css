@@ -155,8 +155,6 @@ the elements in the center and creates gap between */
 
 .hero-container {
   background: url("../images/d07d62267a83255f3e2eeb2c53e95645.gif");
- 
-  
 }
 /*----------------------------------------------
       ------------------------------------------------
@@ -177,9 +175,8 @@ the elements in the center and creates gap between */
 } */
 
 #form-heading {
-      color: var(--White);
+  color: var(--White);
 }
-
 
 /*----------------------------------------------
       ------------------------------------------------

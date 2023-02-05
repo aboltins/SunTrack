@@ -1,7 +1,7 @@
 // required variables
 let citySearches = []; // object for local storage
 var latitude = "";
-var longtitude = "";
+var longitude = "";
 var date = "Today";
 var city = "";
 var sunrise = "";
@@ -55,9 +55,28 @@ window.onload = function () {
   }
 };
 
-$("#search-button").click(function () {
-  // event.preventDefault();
+///// adds local storage to HTML recent searches
+$(document).ready(function () {
+  let storedData = JSON.parse(localStorage.getItem("citySearches"));
+  console.log(storedData);
+  if (storedData) {
+    citySearches = storedData;
+    for (let i = 0; i < citySearches.length; i++) {
+      let search = citySearches[i].city;
+      let sunrise = citySearches[i].sunrise;
+      let searchDate = citySearches[i].date;
+      let sunset = citySearches[i].sunset;
+      console.log($(`#search${i + 1}`));
+      $(`#search${i + 1}`).text("Destination: " + search);
+      $(`#sunrise${i + 1}`).text("Sunrise: " + sunrise);
+      $(`#sunset${i + 1}`).text("Sunset: " + sunset);
+      $(`#searchDate${i + 1}`).text("Date: " + searchDate);
+    }
+  }
+});
 
+$("#search-button").click(function (event) {
+  event.preventDefault();
   const queryParam = $("#search-input").val();
   city = $("#search-input").val();
   city = city.charAt(0).toUpperCase() + city.slice(1); // makes the first letter caps of the city value :)
@@ -70,6 +89,7 @@ $("#search-button").click(function () {
   if (!queryParam) {
     return;
   }
+  switchInitialImage();
 
   fetch(location)
     .then(function (response) {
@@ -78,20 +98,20 @@ $("#search-button").click(function () {
     .then(function (data) {
       console.log(data);
 
-      if (data.length === 0) {
-        /// NEw code in place to stop no city response
+      if (data.length === 0 || queryParam === "") {
+        /// NEw code in place to stop no city response and show modal
         modal();
         return;
       }
 
       displayCityData(data);
       latitude = data[0].lat;
-      longtitude = data[0].lon;
+      longitude = data[0].lon;
       imageURL =
         "https://maps.googleapis.com/maps/api/staticmap?center=" +
         latitude +
         "%2c%20" +
-        longtitude +
+        longitude +
         "8&zoom=12&size=600x600&key=AIzaSyCoIJTitaSal9kU_w5Gz0c-M5epiS69i44";
       // call to sunset api
 
@@ -99,7 +119,7 @@ $("#search-button").click(function () {
         "https://api.sunrisesunset.io/json?lat=" +
         latitude +
         "&lng=" +
-        longtitude +
+        longitude +
         "&date=" +
         date;
       $.ajax({
@@ -121,7 +141,7 @@ $("#search-button").click(function () {
         let cityData = {
           city: city,
           latitude: latitude,
-          longtitude: longtitude,
+          longitude: longitude,
           sunrise: sunrise,
           firstLight: firstLight,
           dawn: dawn,
@@ -208,16 +228,6 @@ function switchInitialImage() {
     myLocationsSection.style.display = "inherit";
   }
 }
-
-// click event that prevents default and then -
-// checks if button clicked is the searchBtn and then -
-// calls switchInitialImage function.
-searchForm.addEventListener("click", function (event) {
-  event.preventDefault();
-  if (event.target === searchBtn) {
-    switchInitialImage();
-  }
-});
 
 // moment .js
 var timeDisplayEl = $("#time-display");
