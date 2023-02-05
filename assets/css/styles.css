@@ -222,6 +222,16 @@ the elements in the center and creates gap between */
   color: #000000 !important;
 }
 
+/* styles audio for sunrise and sunset cards */
+audio {
+  width: 100px;
+  height: 50px;
+  float: right;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+
 /*----------------------------------------------
       ------------------------------------------------
       6. Buttons & Search Form
