@@ -86,12 +86,10 @@ h3 {
 
 .sunTrack-header {
   /* background-color: var(--SunYellow); */
-  background-image: linear-gradient(
-    43deg,
-    #ee3124 0%,
-    #ffcb47 46%,
-    #584c22 100%
-  );
+  background-image: linear-gradient(43deg,
+      #ee3124 0%,
+      #ffcb47 46%,
+      #584c22 100%);
 
   /* sets properties for entire header */
   height: 13vh;
@@ -158,6 +156,7 @@ the elements in the center and creates gap between */
   /* creates margin at the bottom of hero container */
   margin-bottom: 15px;
 }
+
 /*----------------------------------------------
       ------------------------------------------------
       4. Hero Jumbotron Section
@@ -234,6 +233,35 @@ audio {
       ------------------------------------------------
       ----------------------------------------------*/
 
+      /* My Locations section */
+
+#my-locations-section {
+  margin-top: 25px;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.mylocations-title {
+  margin-bottom: 15px;
+}
+
+.history-card {
+  cursor: pointer;
+  background-image: linear-gradient(43deg,
+      #ee3124 0%,
+      #ffcb47 46%,
+      #584c22 100%);
+}
+
+.history-card:hover {
+  opacity: 60%;
+  font-weight: bolder;
+}
+
+.location-card {
+  background-color: rgb(240, 239, 239);
+}
+
 /*----------------------------------------------
       ------------------------------------------------
       7. Footer Styles
@@ -287,7 +315,7 @@ footer {
       ------------------------------------------------
       ----------------------------------------------*/
 
-      /* Time display */
+/* Time display */
 
 /* sets media query for time-display size */
 @media only screen and (max-width: 991px) {
@@ -301,8 +329,8 @@ footer {
     font-size: 13px;
   }
 }
-      
-      /* Input Container*/
+
+/* Input Container*/
 
 /* sets media query on input container for everything under 1200px */
 @media only screen and (max-width: 1200px) {
@@ -336,6 +364,7 @@ footer {
 /* sets media query on search input, datepicker and search button for everything under 650px */
 
 @media only screen and (max-width: 650px) {
+
   #search-input,
   #datepicker {
     height: 30px;
