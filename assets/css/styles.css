@@ -78,6 +78,14 @@ h3 {
   margin-top: 10px !important;
 }
 
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  border-bottom: 1px solid var(--SunYellow);
+}
+
 /*----------------------------------------------
       ------------------------------------------------
       2. Navigation Bar
@@ -86,10 +94,12 @@ h3 {
 
 .sunTrack-header {
   /* background-color: var(--SunYellow); */
-  background-image: linear-gradient(43deg,
-      #ee3124 0%,
-      #ffcb47 46%,
-      #584c22 100%);
+  background-image: linear-gradient(
+    43deg,
+    #ee3124 0%,
+    #ffcb47 46%,
+    #584c22 100%
+  );
 
   /* sets properties for entire header */
   height: 13vh;
@@ -185,7 +195,6 @@ the elements in the center and creates gap between */
   background-size: cover;
 }
 
-
 .sunrise-text,
 .sunset-text {
   color: var(--White);
@@ -210,7 +219,6 @@ the elements in the center and creates gap between */
   color: #000000 !important;
 }
 
-
 /* styles audio for sunrise and sunset cards */
 audio {
   width: 100px;
@@ -233,7 +241,7 @@ audio {
       ------------------------------------------------
       ----------------------------------------------*/
 
-      /* My Locations section */
+/* My Locations section */
 
 #my-locations-section {
   margin-top: 25px;
@@ -247,10 +255,12 @@ audio {
 
 .history-card {
   cursor: pointer;
-  background-image: linear-gradient(43deg,
-      #ee3124 0%,
-      #ffcb47 46%,
-      #584c22 100%);
+  background-image: linear-gradient(
+    43deg,
+    #ee3124 0%,
+    #ffcb47 46%,
+    #584c22 100%
+  );
 }
 
 .history-card:hover {
@@ -309,6 +319,30 @@ footer {
   font-family: var(--body), Arial, Helvetica, sans-serif;
 }
 
+.ui-datepicker .ui-datepicker-header {
+  background-color: var(--SunYellow);
+}
+
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+  border: 1px solid #dad55e;
+  background: var(--SunYellow) !important;
+  color: var(--White) !important;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+  border: 1px solid #003eff;
+  background: var(--SkyBlue) !important;
+  font-weight: normal;
+  color: #ffffff;
+}
+
 /*----------------------------------------------
       ------------------------------------------------
       9. Media Queries
@@ -364,7 +398,6 @@ footer {
 /* sets media query on search input, datepicker and search button for everything under 650px */
 
 @media only screen and (max-width: 650px) {
-
   #search-input,
   #datepicker {
     height: 30px;
@@ -378,13 +411,11 @@ footer {
   }
 }
 
-
 /* main content media queries */
 
 /* sunrise and sunset card text */
 
 @media only screen and (max-width: 991px) {
-
   .sunrise-content li,
   .sunset-content li {
     font-size: 15px;
@@ -399,7 +430,6 @@ footer {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-
   .sunrise-content li,
   .sunset-content li {
     font-size: 19px;
@@ -414,7 +444,6 @@ footer {
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1500px) {
-
   .sunrise-content li,
   .sunset-content li {
     font-size: 23px;
@@ -429,7 +458,6 @@ footer {
 }
 
 @media only screen and (min-width: 1501px) {
-
   .sunrise-content li,
   .sunset-content li {
     font-size: 28px;
@@ -446,7 +474,6 @@ footer {
 /* changes the order of main content below 991px */
 
 @media only screen and (max-width: 991px) {
-
   #main-content-holder :nth-child(1) {
     order: 3;
   }
@@ -463,7 +490,6 @@ footer {
 /* makes the main content same shape once 992px and above */
 
 @media only screen and (min-width: 992px) {
-
   .map-card,
   .sunrise-card,
   .sunset-card {

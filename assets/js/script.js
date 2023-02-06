@@ -37,23 +37,14 @@ $modal.on("hidden.bs.modal", function () {
 });
 
 $(document).ready(function () {
-  // Check if the modal has already been shown to the user
-  if (!localStorage.getItem("modalShown")) {
-    // Show the modal
+  const modalShown = localStorage.getItem("modalShown");
+  if (modalShown === null || modalShown === "false") {
     $("#modal").modal("show");
-    // Set a flag in local storage to indicate that the modal has been shown
-    localStorage.setItem("modalShown", true);
+    localStorage.setItem("modalShown", "true");
   }
 });
-//MODAL WORK END
 
-// pulls info from local storage and saves to the city searches object
-window.onload = function () {
-  let storedData = JSON.parse(localStorage.getItem("citySearches"));
-  if (storedData) {
-    citySearches = storedData;
-  }
-};
+//MODAL WORK END
 
 ///// adds local storage to HTML recent searches
 $(document).ready(function () {
@@ -196,13 +187,14 @@ $("#search-button").click(function (event) {
     const latDiv = $("<div>Lat: " + data[0].lat + " </div>");
     const lonDiv = $("<div>Lon: " + data[0].lon + " </div>");
     const cityBlurb = $(
-      "<div> Here is how to find " +
-      "<strong>" +
-      city +
-      "</strong>" +
-      ", have fun seeing the sights!" +
-      "</div>"
+      "<div> Discover the perfect spot in " +
+        "<strong>" +
+        city +
+        "</strong>" +
+        ", to witness breathtaking sunsets and sunrises with our easy-to-use map. Simply navigate to the coordinates and bask in the glory of the  sun." +
+        "</div>"
     );
+
 
     cardContainer.append(cityName);
     cardContainer.append(latDiv);
@@ -229,14 +221,15 @@ function switchInitialImage() {
 }
 
 // moment .js
-var timeDisplayEl = $("#time-display");
+let timeDisplayEl = $("#time-display");
 
-// handle displaying the time
 function displayTime() {
-  var rightNow = moment().format("llll");
+  let rightNow = moment().format("llll");
   timeDisplayEl.text(rightNow);
-  setInterval(displayTime, 1000);
 }
+
+setInterval(displayTime, 1000);
+displayTime();
 
 // Datepicker widget
 $(function () {
@@ -254,23 +247,27 @@ $("#datepicker").on("change", function () {
   date = $(this).val();
 });
 
-//runs the time function
-displayTime();
+
 
 // Repopulating the search if user clicks on one of the local search cards.
 
 // selects all elements with the class history-card, adds a 'click' event listener
 // to each of them and then executes the below code .
-document.querySelectorAll(".history-card").forEach(card => {
+document.querySelectorAll(".history-card").forEach((card) => {
   card.addEventListener("click", () => {
-    let searchValue = card.querySelector(".recentSearch").innerText.split(":")[1];
-    let dateValue = card.querySelector(".searchDate").innerText.split("Date:")[1].trim();
-    document.querySelector('#search-input').value = searchValue.trim();
-    document.querySelector('#datepicker').value = dateValue;
+    let searchValue = card
+      .querySelector(".recentSearch")
+      .innerText.split(":")[1];
+    let dateValue = card
+      .querySelector(".searchDate")
+      .innerText.split("Date:")[1]
+      .trim();
+    document.querySelector("#search-input").value = searchValue.trim();
+    document.querySelector("#datepicker").value = dateValue;
     // the above line does not trigger the change event on the datepicker element
     // so it has been manually triggered below.
     $("#datepicker").trigger("change");
-    document.querySelector('#date').value = dateValue;
+    document.querySelector("#date").value = dateValue;
     searchBtn.click();
-  })
-})
+  });
+});
