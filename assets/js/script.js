@@ -66,7 +66,7 @@ $(document).ready(function () {
       let sunrise = citySearches[i].sunrise;
       let searchDate = citySearches[i].date;
       let sunset = citySearches[i].sunset;
-      console.log($(`#search${i + 1}`));
+      // console.log($(`#search${i + 1}`));
       $(`#search${i + 1}`).text("Destination: " + search);
       $(`#sunrise${i + 1}`).text("Sunrise: " + sunrise);
       $(`#sunset${i + 1}`).text("Sunset: " + sunset);

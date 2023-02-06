@@ -155,24 +155,14 @@ the elements in the center and creates gap between */
 
 .hero-container {
   background: url("../images/d07d62267a83255f3e2eeb2c53e95645.gif");
+  /* creates margin at the bottom of hero container */
+  margin-bottom: 15px;
 }
 /*----------------------------------------------
       ------------------------------------------------
       4. Hero Jumbotron Section
       ------------------------------------------------
       ----------------------------------------------*/
-
-/* hides jumbotron image or main-content - 
-      solely for the purpose while working with
-      the main cards, will be hidden on-click in js */
-
-/* #initial-image {
-      display: none;
-} */
-
-/* .main-content-container {
-      display: none;
-} */
 
 #form-heading {
   color: var(--White);
@@ -287,6 +277,24 @@ footer {
       9. Media Queries
       ------------------------------------------------
       ----------------------------------------------*/
+
+      /* Time display */
+
+/* sets media query for time-display size */
+@media only screen and (max-width: 991px) {
+  #time-display {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  #time-display {
+    font-size: 13px;
+  }
+}
+      
+      /* Input Container*/
+
 /* sets media query on input container for everything under 1200px */
 @media only screen and (max-width: 1200px) {
   .input-container {
@@ -296,6 +304,7 @@ footer {
 }
 
 /* sets media query on input container for everything under 991px */
+/* changes the order once below 991 */
 @media only screen and (max-width: 991px) {
   .input-container {
     flex-direction: column;
@@ -316,6 +325,7 @@ footer {
 }
 
 /* sets media query on search input, datepicker and search button for everything under 650px */
+
 @media only screen and (max-width: 650px) {
   #search-input,
   #datepicker {
@@ -330,15 +340,96 @@ footer {
   }
 }
 
-/* sets media query for time-display size */
+
+/* main content media queries */
+
+/* sunrise and sunset card text */
+
 @media only screen and (max-width: 991px) {
-  #time-display {
-    font-size: 17px;
+
+  .sunrise-content li,
+  .sunset-content li {
+    font-size: 15px;
+    padding-bottom: 0px;
+  }
+
+  .sunrise-text,
+  .sunset-text {
+    font-weight: 300;
+    font-size: 15px;
   }
 }
 
-@media only screen and (max-width: 650px) {
-  #time-display {
-    font-size: 13px;
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+  .sunrise-content li,
+  .sunset-content li {
+    font-size: 19px;
+    padding-bottom: 2px;
+  }
+
+  .sunrise-text,
+  .sunset-text {
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1201px) and (max-width: 1500px) {
+
+  .sunrise-content li,
+  .sunset-content li {
+    font-size: 23px;
+    padding-bottom: 3px;
+  }
+
+  .sunrise-text,
+  .sunset-text {
+    font-weight: 600;
+    font-size: 22px;
+  }
+}
+
+@media only screen and (min-width: 1501px) {
+
+  .sunrise-content li,
+  .sunset-content li {
+    font-size: 28px;
+    padding-bottom: 5px;
+  }
+
+  .sunrise-text,
+  .sunset-text {
+    font-weight: 900;
+    font-size: 26px;
+  }
+}
+
+/* changes the order of main content below 991px */
+
+@media only screen and (max-width: 991px) {
+
+  #main-content-holder :nth-child(1) {
+    order: 3;
+  }
+
+  #main-content-holder :nth-child(2) {
+    order: 1;
+  }
+
+  #main-content-holder :nth-child(3) {
+    order: 2;
+  }
+}
+
+/* makes the main content same shape once 992px and above */
+
+@media only screen and (min-width: 992px) {
+
+  .map-card,
+  .sunrise-card,
+  .sunset-card {
+    width: 100%;
+    height: 100%;
   }
 }
