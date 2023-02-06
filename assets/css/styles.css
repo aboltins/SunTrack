@@ -222,6 +222,12 @@ audio {
   margin-bottom: 5px;
 }
 
+.audio-1 {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
 /*----------------------------------------------
       ------------------------------------------------
       6. Buttons & Search Form
