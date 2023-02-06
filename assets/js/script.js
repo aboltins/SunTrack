@@ -130,19 +130,19 @@ $("#search-button").click(function (event) {
         //local storage save work - saves an object to local storage
 
         let cityData = {
-          city: city,
-          latitude: latitude,
-          longitude: longitude,
-          sunrise: sunrise,
-          firstLight: firstLight,
-          dawn: dawn,
-          dusk: dusk,
-          lastLight: lastLight,
-          sunset: sunset,
-          imageURL: imageURL,
-          date: date,
+          city,
+          latitude,
+          longitude,
+          sunrise,
+          firstLight,
+          dawn,
+          dusk,
+          lastLight,
+          sunset,
+          imageURL,
+          date
         };
-
+        
         // check if city and date already exist in citySearches
         let cityExists = false;
         let dateExists = false;
