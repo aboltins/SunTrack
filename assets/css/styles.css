@@ -186,18 +186,20 @@ the elements in the center and creates gap between */
   background-size: cover;
 }
 
-.card-body img {
-  max-width: 100%;
-}
 
-.card-text {
+.sunrise-text,
+.sunset-text {
   color: var(--White);
   font-weight: 600;
+  font-size: 20px;
+  text-align: center;
 }
 
 #sunrise-card,
 #sunset-card {
   color: var(--White);
+  font-size: 35px;
+  text-align: center;
 }
 
 .sunrise-times,
@@ -208,6 +210,7 @@ the elements in the center and creates gap between */
 .card-text-black {
   color: #000000 !important;
 }
+
 
 /* styles audio for sunrise and sunset cards */
 audio {
