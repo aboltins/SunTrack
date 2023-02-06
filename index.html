@@ -71,7 +71,7 @@
             <!-- map card -->
             <div class="col-md-5">
                 <div class="card map-card">
-                    <img id ="mapimage" src="" alt="placeholder image">
+                    <img id="mapimage" src="" alt="placeholder image">
                     <div class="card-body map-content">
                         <h5 id="map-title" class="card-title">MAP CARD</h5>
                         <!-- Stops filled content from overflowing -->
@@ -109,7 +109,7 @@
 
                                     </ul>
                                     <audio controls src="https://www.slspencer.com/Sounds/Ringtones/UglyBadGood.m4r"
-                                    controls="true" class="audio-1"></audio>
+                                        controls="true" class="audio-1"></audio>
                                 </div>
                             </div>
                         </div>
@@ -128,12 +128,12 @@
                                     </p>
                                     <ul class="sunset-times">
                                         <li>Date: <span id="dateSunset"></span></li>
-                                        <li>Sunset Time: <span id="sunset"></span></li>                         
+                                        <li>Sunset Time: <span id="sunset"></span></li>
                                         <li>Dusk Time: <span id="dusk-time"></span></li>
                                         <li>Last Light Time: <span id="last-light"></span></li>
 
-                                        </ul>
-                                        <audio controls src="https://www.slspencer.com/Sounds/Ringtones/Twilight%20Zone.m4r"
+                                    </ul>
+                                    <audio controls src="https://www.slspencer.com/Sounds/Ringtones/Twilight%20Zone.m4r"
                                         controls="true" class="audio-1"></audio>
                                 </div>
                             </div>
@@ -144,55 +144,55 @@
         </div>
     </div>
 
-     <!-- My Locations section -->
+    <!-- My Locations section -->
 
-     <article id="my-locations-section">
+    <article id="my-locations-section">
         <!-- My Locations title -->
-        <h3 class="mylocations-title" id="histtory">Recent Searches</h3>
+        <h3 class="mylocations-title">Recent Searches</h3>
 
         <!-- Container that hold 4 cards for My Locations Content that will be populated 
                     from local storage. -->
         <div class="container-fluid my-locations-container">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 history-card">
                     <!-- card 1 -->
-                    <div class="card location-card-1">
-                        <div class="card-body">
-                            <h5 class="card-title"><span id="search1"></span></h5>
-                            <p class="card-text card-text-black"><span id="searchDate1"></span></p>
+                    <div class="card">
+                        <div class="card-body location-card">
+                            <h5 class="card-title"><span id="search1" class="recentSearch"></span></h5>
+                            <p class="card-text card-text-black"><span id="searchDate1" class="searchDate"></span></p>
                             <p class="card-text card-text-black"><span id="sunrise1"></span></p>
                             <p class="card-text card-text-black"><span id="sunset1"></span></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 history-card">
                     <!-- card 2 -->
-                    <div class="card my-locations-card-2">
-                        <div class="card-body">
-                            <h5 class="card-title"><span id="search2"></span></h5>
-                            <p class="card-text card-text-black"><span id="searchDate2"></span></p>
+                    <div class="card">
+                        <div class="card-body location-card">
+                            <h5 class="card-title"><span id="search2" class="recentSearch"></span></h5>
+                            <p class="card-text card-text-black"><span id="searchDate2" class="searchDate"></span></p>
                             <p class="card-text card-text-black"><span id="sunrise2"></span></p>
                             <p class="card-text card-text-black"><span id="sunset2"></span></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card location-card-3">
+                <div class="col-lg-3 col-md-6 col-sm-6 history-card">
+                    <div class="card">
                         <!-- card 3 -->
-                        <div class="card-body">
-                            <h5 class="card-title"><span id="search3"></span></h5>
-                            <p class="card-text card-text-black"><span id="searchDate3"></span></p>
+                        <div class="card-body location-card">
+                            <h5 class="card-title"><span id="search3" class="recentSearch"></span></h5>
+                            <p class="card-text card-text-black"><span id="searchDate3" class="searchDate"></span></p>
                             <p class="card-text card-text-black"><span id="sunrise3"></span></p>
                             <p class="card-text card-text-black"><span id="sunset3"></span></p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card location-card-4">
-                        <div class="card-body">
+                <div class="col-lg-3 col-md-6 col-sm-6 history-card">
+                    <div class="card">
+                        <div class="card-body location-card">
                             <!-- card 4 -->
-                            <h5 class="card-title"><span id="search4"></span></h5>
-                            <p class="card-text card-text-black"><span id="searchDate4"></span></p>
+                            <h5 class="card-title"><span id="search4" class="recentSearch"></span></h5>
+                            <p class="card-text card-text-black"><span id="searchDate4" class="searchDate"></span></p>
                             <p class="card-text card-text-black"><span id="sunrise4"></span></p>
                             <p class="card-text card-text-black"><span id="sunset4"></span></p>
                         </div>
@@ -207,12 +207,13 @@
 
     <footer class="bg-light py-2">
         <div class="container">
-            <p class="text-center text-muted">&copy; SunTrack 2023 - Powered by <a href="https://sunrisesunset.io/" target="_blank">SunriseSunset.io.</a></p>
+            <p class="text-center text-muted">&copy; SunTrack 2023 - Powered by <a href="https://sunrisesunset.io/"
+                    target="_blank">SunriseSunset.io.</a></p>
         </div>
     </footer>
 
-     <!-- Pop Up Modal -->
-     <div class="modal fade" id="modal">
+    <!-- Pop Up Modal -->
+    <div class="modal fade" id="modal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
@@ -220,7 +221,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title">Welcome to SunTrack !</h4>
-                    <p class="modal-text">Time to shed some light on your day by finding out the sunrise and sunset times for your desired city. Just give us a city and a date, and we'll do the rest!</p>
+                    <p class="modal-text">Time to shed some light on your day by finding out the sunrise and sunset
+                        times for your desired city. Just give us a city and a date, and we'll do the rest!</p>
                 </div>
             </div>
         </div>
@@ -234,7 +236,10 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <h4 class="modal-title">Location Not Found: A Sunset Is Out There, We Promise!</h4>
-                    <p class="modal-text">Sun, where art thou? It looks like the location you're searching for has gone into hiding. Don't worry, we'll help you find it. Just double check the spelling and try searching for a nearby location. If all else fails, we'll send out a search party. Well, not really, but we'll certainly be here to help if you need us.</p>
+                    <p class="modal-text">Sun, where art thou? It looks like the location you're searching for has gone
+                        into hiding. Don't worry, we'll help you find it. Just double check the spelling and try
+                        searching for a nearby location. If all else fails, we'll send out a search party. Well, not
+                        really, but we'll certainly be here to help if you need us.</p>
                 </div>
             </div>
         </div>

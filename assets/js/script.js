@@ -197,11 +197,11 @@ $("#search-button").click(function (event) {
     const lonDiv = $("<div>Lon: " + data[0].lon + " </div>");
     const cityBlurb = $(
       "<div> Here is how to find " +
-        "<strong>" +
-        city +
-        "</strong>" +
-        ", have fun seeing the sights!" +
-        "</div>"
+      "<strong>" +
+      city +
+      "</strong>" +
+      ", have fun seeing the sights!" +
+      "</div>"
     );
 
     cardContainer.append(cityName);
@@ -219,8 +219,7 @@ mainContainer.style.display = "none";
 myLocationsSection.style.display = "none";
 
 // function that hides initial image  -
-// and displays main container and my locations sections
-// will need to add other criteria in case the user submits empty fields.
+// and displays main container and my locations section
 function switchInitialImage() {
   if (initialImage.style.display !== "none") {
     initialImage.style.display = "none";
@@ -257,3 +256,21 @@ $("#datepicker").on("change", function () {
 
 //runs the time function
 displayTime();
+
+// Repopulating the search if user clicks on one of the local search cards.
+
+// selects all elements with the class history-card, adds a 'click' event listener
+// to each of them and then executes the below code .
+document.querySelectorAll(".history-card").forEach(card => {
+  card.addEventListener("click", () => {
+    let searchValue = card.querySelector(".recentSearch").innerText.split(":")[1];
+    let dateValue = card.querySelector(".searchDate").innerText.split("Date:")[1].trim();
+    document.querySelector('#search-input').value = searchValue.trim();
+    document.querySelector('#datepicker').value = dateValue;
+    // the above line does not trigger the change event on the datepicker element
+    // so it has been manually triggered below.
+    $("#datepicker").trigger("change");
+    document.querySelector('#date').value = dateValue;
+    searchBtn.click();
+  })
+})
