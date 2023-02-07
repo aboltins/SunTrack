@@ -13,6 +13,7 @@ var sunset = "";
 var imageURL = "";
 var $modal = $("#errorModal");
 var today = new Date();
+var dateOnly = today.toISOString().slice(0,10);
 
 let searchBtn = document.querySelector("#search-button");
 let searchForm = document.querySelector("#search-form");
@@ -129,6 +130,8 @@ $("#search-button").click(function (event) {
 
         //local storage save work - saves an object to local storage
 
+   
+
         let cityData = {
           city,
           latitude,
@@ -142,6 +145,10 @@ $("#search-button").click(function (event) {
           imageURL,
           date
         };
+
+        if (cityData.date == "Today") {
+          cityData.date = dateOnly
+        }
         
         // check if city and date already exist in citySearches
         let cityExists = false;
@@ -152,13 +159,14 @@ $("#search-button").click(function (event) {
             dateExists = true;
             break;
           }
-        }
+        };
 
         // only add the city data if neither city nor date exists
         if (!cityExists && !dateExists) {
           citySearches.unshift(cityData);
+         
           localStorage.setItem("citySearches", JSON.stringify(citySearches));
-        }
+        };
 
         //adds sunrise data to HTML
         $("#first-light").text(firstLight);
