@@ -94,10 +94,12 @@ a:hover {
 
 .sunTrack-header {
   /* background-color: var(--SunYellow); */
-  background-image: linear-gradient(43deg,
-      #ee3124 0%,
-      #ffcb47 46%,
-      #584c22 100%);
+  background-image: linear-gradient(
+    43deg,
+    #ee3124 0%,
+    #ffcb47 46%,
+    #584c22 100%
+  );
 
   /* sets properties for entire header */
   height: 13vh;
@@ -253,10 +255,12 @@ audio {
 
 .history-card {
   cursor: pointer;
-  background-image: linear-gradient(43deg,
-      #ee3124 0%,
-      #ffcb47 46%,
-      #584c22 100%);
+  background-image: linear-gradient(
+    43deg,
+    #ee3124 0%,
+    #ffcb47 46%,
+    #584c22 100%
+  );
 }
 
 .history-card:hover {
@@ -315,6 +319,7 @@ footer {
   font-family: var(--body), Arial, Helvetica, sans-serif;
 }
 
+/* Date Picker styles */
 .ui-datepicker .ui-datepicker-header {
   background-color: var(--SunYellow);
 }
@@ -394,7 +399,6 @@ a.ui-button:active,
 /* sets media query on search input, datepicker and search button for everything under 650px */
 
 @media only screen and (max-width: 650px) {
-
   #search-input,
   #datepicker {
     height: 30px;
@@ -413,7 +417,6 @@ a.ui-button:active,
 /* sunrise and sunset card text */
 
 @media only screen and (max-width: 991px) {
-
   .sunrise-content li,
   .sunset-content li {
     font-size: 15px;
@@ -428,7 +431,6 @@ a.ui-button:active,
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
-
   .sunrise-content li,
   .sunset-content li {
     font-size: 19px;
@@ -443,7 +445,6 @@ a.ui-button:active,
 }
 
 @media only screen and (min-width: 1201px) and (max-width: 1500px) {
-
   .sunrise-content li,
   .sunset-content li {
     font-size: 23px;
@@ -458,7 +459,6 @@ a.ui-button:active,
 }
 
 @media only screen and (min-width: 1501px) {
-
   .sunrise-content li,
   .sunset-content li {
     font-size: 28px;
@@ -507,7 +507,6 @@ a.ui-button:active,
 /* makes the main content same shape once 992px and above */
 
 @media only screen and (min-width: 992px) {
-
   .map-card,
   .sunrise-card,
   .sunset-card {

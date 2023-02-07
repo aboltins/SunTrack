@@ -12,8 +12,8 @@ var lastLight = "";
 var sunset = "";
 var imageURL = "";
 var $modal = $("#errorModal");
-var today = new Date();
-var dateOnly = today.toISOString().slice(0,10);
+var today = new Date(); // date method
+var dateOnly = today.toISOString().slice(0, 10); // slices the Date method to remove time
 
 let searchBtn = document.querySelector("#search-button");
 let searchForm = document.querySelector("#search-form");
@@ -90,7 +90,7 @@ $("#search-button").click(function (event) {
     .then(function (data) {
       console.log(data);
 
-      if (data.length === 0 || queryParam === "") {
+      if (data.length === 0) {
         /// NEw code in place to stop no city response and show modal
         modal();
         return;
@@ -130,8 +130,6 @@ $("#search-button").click(function (event) {
 
         //local storage save work - saves an object to local storage
 
-   
-
         let cityData = {
           city,
           latitude,
@@ -143,13 +141,14 @@ $("#search-button").click(function (event) {
           lastLight,
           sunset,
           imageURL,
-          date
+          date,
         };
 
         if (cityData.date == "Today") {
-          cityData.date = dateOnly
+          // takes the value of today and turns it into a to date for local storage
+          cityData.date = dateOnly;
         }
-        
+
         // check if city and date already exist in citySearches
         let cityExists = false;
         let dateExists = false;
@@ -159,14 +158,14 @@ $("#search-button").click(function (event) {
             dateExists = true;
             break;
           }
-        };
+        }
 
         // only add the city data if neither city nor date exists
         if (!cityExists && !dateExists) {
-          citySearches.unshift(cityData);
-         
+          citySearches.unshift(cityData); // uses unshift
+
           localStorage.setItem("citySearches", JSON.stringify(citySearches));
-        };
+        }
 
         //adds sunrise data to HTML
         $("#first-light").text(firstLight);
@@ -199,10 +198,9 @@ $("#search-button").click(function (event) {
         "<strong>" +
         city +
         "</strong>" +
-        ", to witness breathtaking sunsets and sunrises with our easy-to-use map. Simply navigate to the coordinates and bask in the glory of the  sun." +
+        " to witness breathtaking sunsets and sunrises with our easy-to-use map. Simply navigate to the coordinates and bask in the glory of the  sun." +
         "</div>"
     );
-
 
     cardContainer.append(cityName);
     cardContainer.append(latDiv);
@@ -254,8 +252,6 @@ $(function () {
 $("#datepicker").on("change", function () {
   date = $(this).val();
 });
-
-
 
 // Repopulating the search if user clicks on one of the local search cards.
 
