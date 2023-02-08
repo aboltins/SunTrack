@@ -71,6 +71,7 @@ $("#search-button").click(function (event) {
   event.preventDefault();
   const queryParam = $("#search-input").val();
   city = $("#search-input").val();
+  city = city.toLocaleLowerCase();
   city = city.charAt(0).toUpperCase() + city.slice(1); // makes the first letter caps of the city value :)
   const location =
     "https://nominatim.openstreetmap.org/search.php?city=" +
@@ -238,7 +239,7 @@ setInterval(displayTime, 1000);
 displayTime();
 
 // Datepicker widget
-$(function () {
+$(function () { 
   $("#datepicker").datepicker({
     changeMonth: true,
     changeYear: true,
