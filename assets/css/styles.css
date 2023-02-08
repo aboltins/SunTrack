@@ -162,9 +162,10 @@ the elements in the center and creates gap between */
 }
 
 .hero-container {
-  background: url("../images/d07d62267a83255f3e2eeb2c53e95645.gif");
+  background: url("../images/ezgif.com-gif-maker\(1\).gif");
   /* creates margin at the bottom of hero container */
   margin-bottom: 15px;
+  background-size: 33%;
 }
 
 /*----------------------------------------------
@@ -219,6 +220,9 @@ the elements in the center and creates gap between */
   color: #000000 !important;
 }
 
+.card-body {
+  text-align: center;
+}
 /* styles audio for sunrise and sunset cards */
 audio {
   width: 100px;
@@ -235,6 +239,13 @@ audio {
   right: 10px;
 }
 
+.myCard {
+  text-align: center;
+}
+
+#map-title {
+  text-align: center;
+}
 /*----------------------------------------------
       ------------------------------------------------
       6. Buttons & Search Form
