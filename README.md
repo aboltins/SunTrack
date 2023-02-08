@@ -32,7 +32,7 @@ N/A
 
 View the completed project below on the deployed link. A screenshot has also been added.
 
-![My Portfolio](./assets/images/SunTrackMD.jpg)
+![My Portfolio](./assets/images/screenshot.png)
 
 [Link to the finished deployed website](https://aboltins.github.io/SunTrack)
 
