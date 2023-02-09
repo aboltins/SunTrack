@@ -163,7 +163,7 @@ $("#search-button").click(function (event) {
 
         // only add the city data if neither city nor date exists
         if (!cityExists && !dateExists) {
-          citySearches.unshift(cityData); // uses unshift
+          citySearches.unshift(cityData); // uses unshift 
 
           localStorage.setItem("citySearches", JSON.stringify(citySearches));
         }
